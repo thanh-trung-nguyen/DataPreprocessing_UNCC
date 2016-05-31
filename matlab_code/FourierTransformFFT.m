@@ -24,6 +24,7 @@ function [Ft, s] = FourierTransformFFT(F,t,s_min,Type,ds)
 % CALL THE FUNCTION: 
 %   [Ft, s] = FourierTransformFFT(F,t,s_min): use the first formula
 %   [Ft, s] = FourierTransformFFT(F,t,s_min,Type)
+%   [Ft, s] = FourierTransformFFT(F,t,s_min,Type,ds)
 %
 % NOTE: if s_min = 0, only the data of the first half of the frequencies
 % are usable because Ft(Nt-k+2) = conj(Ft(k)), k >=2 from the FFT algorithm
@@ -41,6 +42,11 @@ if Nt ~= N1
 end
 
 dt = t(2)-t(1); % time step
+
+% default Type: forward Fourier transform: 
+if nargin < 4
+    Type = 1;
+end
 
 % If ds is smaller than the default stepsize, add zeros to the end of the input data.
 if (nargin == 5) && (ds < 1/(Nt*dt))
