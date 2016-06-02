@@ -104,7 +104,7 @@ for id = 1:length(PropDistance)
         print('-depsc2',sprintf('%s%s%4.2f%s',figname,'_origdat_freq',freq(n)/10^9,'_abs.eps'));
         
         % propagated data:
-        imagesc(abs(reshape(dataProp(n,:,:),Nx,Ny))'); 
+        surf(abs(reshape(dataProp(n,:,:),Nx,Ny))'); 
         title(sprintf('%s%5.2f%s%4.2f%s','Modulus. Frequency = ',freq(n)/10^9,' GHz. Propagation distance = ',d,' (m)'));
         colorbar; 
         xlabel('x'); ylabel('y'); 
