@@ -7,7 +7,7 @@ datafilename = 'bub-bam1-lateral.csv';
 emptyfile = 'empty.csv'; 
 
 % Propagation distance: 
-PropDistance = [0.95]; % a number or vector of distance of propagation in meters
+PropDistance = [0.9]; % a number or vector of distance of propagation in meters
 
 % a list of frequency at which you want to display the result: 
 DisplayedFreqList = [7.0e9]; % in Hz. 

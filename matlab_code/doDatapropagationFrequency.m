@@ -66,7 +66,8 @@ for id = 1:length(PropDistance)
     
     dataProp = wave_propagation_freq_3d(data3d,d,freq',X,Y,LightSpeed);
     dataProp = reshape(dataProp,Nfreq,Nx*Ny);
-
+ 
+    
 
     % --- display the result and save some figures:
     
@@ -112,5 +113,12 @@ for id = 1:length(PropDistance)
 
 
     end
+    
+    % convert to Laplace transform domain: 
+    s = 8; 
+    us = freq2laplace(dataProp,freq/10^9,s); 
+    us(us<0) = 0; 
+    imagesc(reshape(us,Nx,Ny)'); title(sprinft('%s%d','s = ',s)); 
+    
 end
 
